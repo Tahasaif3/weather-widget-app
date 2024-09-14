@@ -143,17 +143,13 @@ export default function WeatherWidget() {
 
     return (
             <div className={`relative min-h-screen flex items-center justify-center ${backgroundClass}`}>
-                 <img
-                src="https://cdn.leonardo.ai/users/a89cf29b-c2c2-480a-860e-8e4c26cda6e5/generations/0fc94a18-4fbb-4376-a9d3-37a96c374679/variations/Default_create_a_vector_logo_of_my_name_taha_1_0fc94a18-4fbb-4376-a9d3-37a96c374679_0.png"
-                alt="MyLogo"
-                className="absolute top-4 right-4 h-auto w-32" />
-            <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 text-5xl font-extrabold uppercase text-white mb-12 z-20">
-                Weather Widget
+<h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 text-4xl md:text-5xl font-extrabold uppercase text-white mb-6 md:mb-12 z-20">
+Weather Widget
             </h1>
             <div className="relative z-10 mt-20">
             <Card className="w-full max-w-md bg-white/80 backdrop-blur-md">
                 <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-center text-gray-800">Weather Widget</CardTitle>
+                <CardTitle className="text-xl md:text-2xl font-bold text-center text-gray-800">Weather Widget</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -182,32 +178,32 @@ export default function WeatherWidget() {
                         </Button>
                     </form>
                     {error && <p className="mt-4 text-red-500 text-center">{error}</p>}
-                    {temperatureMessage && <p className="mt-4 text-green-500 text-center">{temperatureMessage}</p>}
+                    {temperatureMessage && <p className="text-yellow-600 text-center mt-4 font-semibold">{temperatureMessage}</p>}
                     {weatherData && (
                         <div className="mt-6 text-center">
                             <div className="flex items-center justify-center mb-4">
                                 {weatherData.weather[0] && getWeatherIcon(weatherData.weather[0].id)}
                             </div>
-                            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                            <h2 className="text-base md:text-xl text-gray-600">
                                 {weatherData.name}, {weatherData.sys.country}
                             </h2>
                             <p className="text-xl text-gray-600">{weatherData.weather[0]?.description}</p>
-                            <p className="text-4xl font-bold text-gray-800 mt-2">
+                            <p className="text-base md:text-lg text-gray-600">
                                 {Math.round(convertTemperature(weatherData.main.temp))}°{unit === 'metric' ? 'C' : 'F'}
                             </p>
-                            <p className="text-lg text-gray-600">
+                            <p className="text-base md:text-xl text-gray-600">
                                 Feels like {Math.round(convertTemperature(weatherData.main.feels_like))}°{unit === 'metric' ? 'C' : 'F'}
                             </p>
-                            <p className="text-lg text-gray-600">
+                            <p className="text-base md:text-xl text-gray-600">
                                 Humidity: {weatherData.main.humidity}%
                             </p>
-                            <p className="text-lg text-gray-600">
+                            <p className="text-base md:text-xl text-gray-600">
                                 Pressure: {weatherData.main.pressure} hPa
                             </p>
-                            <p className="text-lg text-gray-600">
+                            <p className="text-base md:text-xl text-gray-600">
                                 Wind Speed: {unit === 'metric' ? weatherData.wind.speed + ' m/s' : (weatherData.wind.speed * 2.237).toFixed(1) + ' mph'}
                             </p>
-                            <p className="text-lg text-gray-600">
+                            <p className="text-base md:text-xl text-gray-600">
                                 {dayOrNight}
                             </p>
                         </div>
