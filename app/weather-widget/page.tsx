@@ -148,7 +148,7 @@ export default function WeatherWidget() {
                 alt="MyLogo"
                 className="absolute top-4 right-4 h-auto w-32" />
             <h1 className="absolute top-4 left-1/2 transform -translate-x-1/2 text-5xl font-extrabold uppercase text-white mb-12 z-20">
-                Weather Widget App
+                Weather Widget
             </h1>
             <div className="relative z-10 mt-20">
             <Card className="w-full max-w-md bg-white/80 backdrop-blur-md">
