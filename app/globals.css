@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Weather widget container styles */
+.weather-widget {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Default styles for smaller screens (mobile) */
+.weather-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Styling for smaller devices */
+.weather-card {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Text sizes */
+h1 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* Media Queries for larger screens */
+@media (min-width: 768px) {
+  /* For tablets or small laptops */
+  .weather-widget {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .weather-card {
+    width: 45%;
+    padding: 15px;
+    margin: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+}
+ /* For desktops or large laptops */
+@media (min-width: 1024px) {
+  .weather-widget {
+    max-width: 1000px;
+    flex-direction: row;
+  }
+
+  .weather-card {
+    width: 30%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+/*this is the basic styling for loading spinner when user click on search button*/
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*typing animation on app/page.tsx*/
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from { border-right: 2px solid transparent; }
+  to { border-right: 2px solid white; }
+}
+
+.typing-animation {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white;
+  animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+}
+
